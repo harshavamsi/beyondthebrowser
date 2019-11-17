@@ -6,20 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: enriikke/gatsby-gh-pages-action@2.1.1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install Packages
-        run: yarn
-      - name: Deploy to GH Pages
-        run: |
-        git config --global user.email "harshavamsi096@gmail.com"
-        git config --global user.name "Harsha Vamsi"
-        git remote set-url origin https://00d7de54081bcd4c824d49032d019e9af444c8e6@github.com/harshavamsi/beyondthebrowser.git
-        yarn deploy
+          access-token: ${{ secrets.ACCESS_TOKEN }}
