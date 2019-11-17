@@ -19,6 +19,10 @@ jobs:
         run: |
           git config --local user.email "harshavamsi096@gmail.com"
           git config --local user.name "Harsha Vamsi"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Packages
         run: yarn
       - name: Deploy to GH Pages
