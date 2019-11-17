@@ -17,7 +17,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Packages
         run: yarn
-      - name: Build Blog
-        run: yarn build
       - name: Deploy to GH Pages
         run: yarn deploy
